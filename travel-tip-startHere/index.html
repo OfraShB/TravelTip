@@ -11,25 +11,28 @@
 <body>
     <div class="head-bar flex space-between">
         <h1>TravelTip</h1>
-        <div class="search-bar">
-            <input type="text" placeholder="Enter Location">
-            <button>Go</button>
-            <button>My Location</button>
+        <div class="search-bar flex">
+            <div class="search-input flex">
+                <input type="text" placeholder="Enter Location">
+                <button>GO</button>
+            </div>
+            <div class="my-location">
+                <button>My Location</button>
+            </div>
         </div>
-
     </div>
     <div class="location flex space-between">
-        <div>
+        <div class="current-location flex">
             <h2>Location:</h2>
-            <h3>tel aviv israel</h3>
+            <h3>tel aviv, israel</h3>
         </div>
         <div>
             <button class="copy">Copy Location</button>
         </div>
     </div>
     <div class="maps flex space-between">
-        <div class="weather"></div>
-        <div id="map" style="width: 50%; height: 300px;"></div>
+        <div class="weather flex">weather map</div>
+        <div id="map" style="width: 50%; height: 50vh;"></div>
     </div>
     <button class="btn">Click Me</button>
     <script type="module" src="js/main.js"></script>

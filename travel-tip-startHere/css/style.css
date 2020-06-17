@@ -4,36 +4,63 @@
 
 body{
     background-color:#fd9f65;
+    max-width: 900px;
 }
 
 button{
     background-color: #928c8ce0;
     color: honeydew;
     border: 1px solid blue;
+    font-size: 1rem;
 }
 
 button:hover{
     cursor: pointer;
 }
 
+input{
+    color: white;
+    font-size: 1rem;
+}
+input::placeholder{
+    color: white;
+    font-size: 1rem;
+}
+
+
 /* head */
 .head-bar{
     align-items: baseline;
-    padding-bottom: 20px;
+}
+.head-bar h1{
+font-size: 2.5rem;
 }
 
 .search-bar *{
     height: 40px;
 }
+.search-input{
+margin-right: 0.5rem;
+}
+.search-input button{
+    width: 100px;
+}
+.search-input input{
+    width: 200px;
+    text-align: center;
+    background-color: lightgray;
+   
+}
 
-
-
+.my-location button{
+    width: 125px;
+}
 
 /* location */
 
 .location{
-    padding: 20px;
     align-items: center;
+    padding-bottom: 1.5rem;
 }
 
 .location button{
@@ -41,6 +68,20 @@ button:hover{
     width: 150px;
 }
 
+.current-location{
+align-items: baseline;
+font-size: 1.5rem;
+}
+
+
+
+/*maps */
+
+.weather{
+     background-color: thistle;
+     height: 150px;
+     width: 250px;
+}
 
 /* helpers */
 .flex{
