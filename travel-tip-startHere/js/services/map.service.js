@@ -8,8 +8,11 @@ export const mapService = {
 
 var map;
 
+latitude: 31.046051
+longitude: 34.851611999999996
 
-export function initMap(lat = 32.0749831, lng = 34.9120554) {
+
+    export function initMap(lat,lng) {//add user location      
     console.log('InitMap');
     return _connectGoogleApi()
         .then(() => {
@@ -39,7 +42,7 @@ function panTo(lat, lng) {
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
-    const API_KEY = ''; //TODO: Enter your API Key
+    const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs'; //TODO: Enter your API Key
     var elGoogleApi = document.createElement('script');
     elGoogleApi.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
     elGoogleApi.async = true;
@@ -50,6 +53,9 @@ function _connectGoogleApi() {
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
 }
+
+// //to translate geo location
+// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
 
 
 
