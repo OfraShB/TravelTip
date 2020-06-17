@@ -25,6 +25,8 @@ window.onload = () => {
         .catch(err => {
             console.log('err!!!', err);
         })
+
+        renderAddress()
 }
 
 document.querySelector('.btn').addEventListener('click', (ev) => {
@@ -33,6 +35,21 @@ document.querySelector('.btn').addEventListener('click', (ev) => {
     
     
 })
+
+function renderAddress(){
+
+    var add = document.querySelector('h3')
+    add.innerHTML = getAddress()
+
+}
+
+function getAddress(){
+
+}
+
+
+
+
 
 
 ////to get api with axios
