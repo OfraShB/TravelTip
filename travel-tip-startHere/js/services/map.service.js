@@ -3,6 +3,7 @@ export const mapService = {
     initMap,
     addMarker,
     panTo,
+    getAddress
 }
 
 
@@ -41,22 +42,36 @@ export function initMap(lat, lng) {//add user location
                 center: { lat, lng },
                 zoom: 15
             })
+
+            var marker = new google.maps.Marker({
+                position: { lat, lng },
+                
+                title:"Hello World!"
+            }); 
+            marker.setMap(map);
             console.log('Map!', map);
         })
 }
 
-// export function getAddress(){
-
-//     return _connectGoogleApi()
-//     .then(()=>{
-        
-//     })
 
 
 
-// }
+export function getAddress(pos) {
+    const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs';
+    // elGeoeApi.src = 
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.coords.latitude},${pos.coords.longitude}&key=${API_KEY}`)
+    // return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${API_KEY}`)
+    // return _connectGoogleApi()
+        // .then(()=>{
 
-function addMarker(loc) {
+        // })
+        .then(res => res.json())
+
+
+
+}
+
+ function addMarker(loc) {
     var marker = new google.maps.Marker({
         position: loc,
         map: map,
@@ -64,8 +79,7 @@ function addMarker(loc) {
     });
     return marker;
 }
-
-function panTo(lat, lng) {
+ function panTo(lat, lng) {
     var laLatLng = new google.maps.LatLng(lat, lng);
     map.panTo(laLatLng);
 }
@@ -83,7 +97,7 @@ function _connectGoogleApi() {
     })
 }
 
-function _connectGeoLocationApi(){
+function _connectGeoLocationApi() {
     if (window.google) return Promise.resolve()
     var elGeoeApi = document.createElement('script');
     const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs';
