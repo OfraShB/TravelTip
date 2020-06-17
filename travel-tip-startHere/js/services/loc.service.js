@@ -3,14 +3,14 @@ export const locService = {
     getPosition: getPosition
 }
 
-navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
+// navigator.geolocation.getCurrentPosition(function(position) {
+//     var pos = {
+//       lat: position.coords.latitude,
+//       lng: position.coords.longitude
+//     };
 
-getPosition().coords.latitude
-getPosition().coords.longitude
+// getPosition().coords.latitude
+// getPosition().coords.longitude
 
 
 var locs = [{ lat: 11.22, lng: 22.11 }]

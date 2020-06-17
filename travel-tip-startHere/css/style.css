@@ -78,7 +78,7 @@ font-size: 1.5rem;
 /*maps */
 
 .weather{
-     background-color: thistle;
+     /* background-color: thistle; */
      height: 150px;
      width: 250px;
 }

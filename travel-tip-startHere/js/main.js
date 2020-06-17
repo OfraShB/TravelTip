@@ -14,17 +14,15 @@ window.onload = () => {
     //         mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 });
     //     })
     //     .catch(console.log('INIT MAP ERROR'));
-
     locService.getPosition()//here position loaded //here user default location
         .then(pos => {
-
             mapService.initMap(pos.coords.latitude,pos.coords.longitude)
-
             console.log('User position is:', pos.coords);
         })
         .catch(err => {
             console.log('err!!!', err);
-        })
+        })    
+        renderAddress()
 }
 
 document.querySelector('.btn').addEventListener('click', (ev) => {
@@ -33,6 +31,21 @@ document.querySelector('.btn').addEventListener('click', (ev) => {
     
     
 })
+
+function renderAddress(){
+
+    var add = document.querySelector('h3')
+    add.innerHTML = getAddress()
+
+}
+
+function getAddress(){
+
+}
+
+
+
+
 
 
 ////to get api with axios
