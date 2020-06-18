@@ -5,6 +5,9 @@
 body{
     background-color:#fd9f65;
     max-width: 900px;
+    margin: 0 auto;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 button{
@@ -78,7 +81,7 @@ font-size: 1.5rem;
 /*maps */
 
 .weather{
-     background-color: thistle;
+     /* background-color: thistle; */
      height: 150px;
      width: 250px;
 }
@@ -90,4 +93,50 @@ font-size: 1.5rem;
 
 .space-between{
     justify-content: space-between;
+}
+
+
+/* media */
+
+@media (max-width: 780px){
+.location{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.head-bar{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.head-bar h1 {
+    text-align: center;
+    padding-right: 20px;
+    flex: 1;
+}
+.current-location{
+    padding-right: 20px;
+    font-size: 1rem;
+}
+}
+@media (max-width: 550px){
+.maps {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.maps div{
+    width: 80%;
+}
+
+#weather{
+    margin-top: 20px;
+    width: 300px;
+}
+.search-bar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.current-location{
+    flex-direction: column;
+}
 }

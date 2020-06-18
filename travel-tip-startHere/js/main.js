@@ -63,7 +63,7 @@ window.onload = () => {
 
 }
 
-document.querySelector('.btn').addEventListener('click', (ev) => {
+document.querySelector('.btnl').addEventListener('click', (ev) => {
 
     locService.getPosition()//here position loaded //here user default location
 

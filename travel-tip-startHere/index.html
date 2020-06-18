@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>TravelTip</title>
 </head>
-
 <body>
     <div class="head-bar flex space-between">
         <h1>TravelTip</h1>
@@ -17,7 +15,8 @@
                 <button>GO</button>
             </div>
             <div class="my-location">
-                <button>My Location</button>
+                <button class="btnl">Click Me</button>
+                <!-- <button class="btn">My Location</button> -->
             </div>
         </div>
     </div>
@@ -31,10 +30,9 @@
         </div>
     </div>
     <div class="maps flex space-between">
-        <div class="weather flex">weather map</div>
+        <div id='weather' style="width: 30%; height: 30vh;" class="weather flex">weather map</div>
         <div id="map" style="width: 50%; height: 50vh;"></div>
     </div>
-    <button class="btn">Click Me</button>
     
     <script type="module" src="js/main.js"></script>
 </body>
