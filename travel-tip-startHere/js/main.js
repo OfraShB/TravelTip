@@ -5,6 +5,7 @@ console.log('Main!');
 
 import { locService } from './services/loc.service.js'
 import { mapService } from './services/map.service.js'
+import { weatherService } from './services/weather.service.js'
 
 
 locService.getLocs()
@@ -23,8 +24,6 @@ window.onload = () => {
         .then(pos => {
             mapService.initMap(pos.coords.latitude, pos.coords.longitude)
 
-
-
             console.log('User position is:', pos.coords);
 
             mapService.getAddress(pos)
@@ -33,7 +32,18 @@ window.onload = () => {
                     // console.log(mapService.getAddress())
                     elaAdd.innerHTML = add.results[0].formatted_address
                     console.log('add ', add)
+
+                    weatherService.getWeather(pos)
+                        .then(weath => {
+                            var elWeather = document.querySelector('.weather')
+                            var weaTxt='today: '+ weath.weather[0].description+' , min temp: '+ convertFtoC(weath.main.temp_min)+' , max temp: '+convertFtoC(weath.main.temp_max)
+                            elWeather.innerHTML = weaTxt
+                            
+                        })
+
                 })
+
+
 
 
 
@@ -67,24 +77,39 @@ document.querySelector('.btn').addEventListener('click', (ev) => {
 
 })
 
+
+
+
 document.querySelector('.copy').addEventListener('click', (ev) => {
 
-    var dummy = document.createElement('input'),
-    text = window.location.href;
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand('copy');
-    document.body.removeChild(dummy);
-    console.log(text)
-    console.log(urlParams)
+
+    locService.getPosition()//here position loaded //here user default location
+        .then(pos => {
+
+            var dummy = document.createElement('input'),
+                text = window.location.href;
+            document.body.appendChild(dummy);
+            var addtxt = `?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`
+            dummy.value = text + addtxt
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            console.log(text + addtxt)
+
+        })
+
+
 
 })
 
 
 
 
+function convertFtoC(value){
 
+//    return value
+   return (value - 32) *( 5 / 9);
+}
 
 
 

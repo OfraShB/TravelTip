@@ -37,23 +37,20 @@ export function initMap(lat, lng) {//add user location
 
 
 
+
+
 export function getAddress(pos) {
 
- 
-
     const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs';
-    // elGeoeApi.src = 
-    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.coords.latitude},${pos.coords.longitude}&key=${API_KEY}`)
-    // return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${API_KEY}`)
-    // return _connectGoogleApi()
-        // .then(()=>{
 
-        // })
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${pos.coords.latitude},${pos.coords.longitude}&key=${API_KEY}`)
+
         .then(res => res.json())
 
-
-
 }
+
+
+
 
 function addMarker(loc) {
     var marker = new google.maps.Marker({
@@ -83,21 +80,23 @@ function _connectGoogleApi() {
     })
 }
 
-function _connectGeoLocationApi() {
-    if (window.google) return Promise.resolve()
-    var elGeoeApi = document.createElement('script');
-    const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs';
-    elGeoeApi.src = `https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${API_KEY}`
-    elGoogleApi.async = true;
-    document.body.append(elGoogleApi);
+// function _connectGeoLocationApi() {
+//     if (window.google) return Promise.resolve()
+//     var elGeoeApi = document.createElement('script');
+//     const API_KEY = 'AIzaSyA9yzuDEb33MyDyYBG-eTzdcVfqlj2e7Bs';
+//     elGeoeApi.src = `https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=${API_KEY}`
+//     elGoogleApi.async = true;
+//     document.body.append(elGoogleApi);
 
-    return new Promise((resolve, reject) => {
-        elGoogleApi.onload = resolve;
-        elGoogleApi.onerror = () => reject('Google script failed to load')
-    })
-}
-// //to translate geo location
-// https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+//     return new Promise((resolve, reject) => {
+//         elGoogleApi.onload = resolve;
+//         elGoogleApi.onerror = () => reject('Google script failed to load')
+//     })
+// }
+
+
+//5d7b69b264e0c8c88069239a73ea828e
+// api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={your api key}
 
 
 
